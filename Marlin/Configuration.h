@@ -304,6 +304,7 @@
 #if ENABLED(SKRMiniE3V2)
   #define SKR_2209
   #define SKR_UART
+  #define OrigLCD
 #endif
 
 #if ENABLED(CrealityTitan)
