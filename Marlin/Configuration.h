@@ -1,4 +1,4 @@
-/*
+ /*
    Basic Options
 
    Select Machine
@@ -12,7 +12,7 @@
 //#define MachineCR20Pro
 //#define MachineCR10S
 //#define MachineCR10SV2
-//#define MachineCR10SPro // Graphics LCD Requires soldering R64 and R66
+#define MachineCR10SPro // Graphics LCD Requires soldering R64 and R66
 //#define MachineCR10SProV2 // Second Gen 10S Pro with BLTouch wired to Z Max
 //#define MachineCRX
 //#define MachineCRXPro
@@ -45,13 +45,11 @@
    Creality Mounting assumes bolt-on kit
 */
 //#define HotendStock
-//#define HotendE3D
+#define HotendE3D
 //#define HotendMosquito
 
 //Enable this if you have an all metal hotend capable of 300c
-#ifndef HotendAllMetal
-  #define HotendAllMetal
-#endif
+#define HotendAllMetal
 
 // Enable this if you used a plug and play creality e3d or mosquito kit and kept the Creality thermistor
 //#define CrealityThermistor
@@ -63,11 +61,11 @@
  //#define EZRstruder
  //#define Bondtech
  //#define E3DTitan
- //#define E3DHemera
+ #define E3DHemera
  //#define CrealityTitan
 
  //#define MicroswissDirectDrive
- //#define DirectDrive // Any direct drive extruder, reduces filament change lengths
+ #define DirectDrive // Any direct drive extruder, reduces filament change lengths
 
 /*
    Choose bed type below. If you have an extenrally controlled
@@ -84,7 +82,7 @@
 */
 //#define ABL_EZABL // TH3D EZABL or Any NO Sensor
 //#define ABL_NCSW //Creality ABL or Any NC Sensor
-//#define ABL_BLTOUCH
+#define ABL_BLTOUCH
 //#define ABL_TOUCH_MI // Uncomment ABL_TOUCH_MI to use Touch-MI sensor by hotends.fr
 
 //#define CREALITY_ABL_MOUNT //Using creality ABL mount
@@ -102,7 +100,7 @@
 
 // Touchscreen options - only 32 bit boards have the open serial ports to use with graphics displays above
 //#define ForceCRXDisplay
-//#define Force10SProDisplay
+#define Force10SProDisplay
 
 //#define AddonFilSensor //Adds a filament runout sensor to the CR20 or Ender 4
 //#define lerdgeFilSensor //Using lerdge filament sensor, which is opposite polarity to stock
@@ -124,7 +122,7 @@
    Melzi board users may only select ABL_BI for bilinear leveling
    If a probe is enabled and nothing selected here, defaults to Bilinear
 */
-//#define ABL_BI
+#define ABL_BI
 //#define ABL_UBL
 
 /*
@@ -180,7 +178,7 @@
    Standard is recommended in most other scenarios.
 */
 //#define MeshFast
-//#define MeshStd
+#define MeshStd
 //#define MeshFine
 //#define MeshExtreme
 
@@ -200,8 +198,6 @@
 //#define EnclosureHeater //Planned to use A11 to control heater upstream, and repurpose the unused y max as the fan output. Not yet fully implemented upstream
 
 //#define UnstableTemps // define if temps are unstable and you need a temporary workaround
-
-//#define NoBedPID //Disabled Bed PID for flickering lights
 
 /**
  * Marlin 3D Printer Firmware
@@ -842,11 +838,11 @@
 #if ENABLED(ConfigurableThermistors) && ANY(BedDC, BedAC)
   #define TEMP_SENSOR_BED 1000
 #elif ENABLED(BedDC)
-	#define TEMP_SENSOR_BED 5
+  #define TEMP_SENSOR_BED 5
 #elif ENABLED(BedAC)
-	#define TEMP_SENSOR_BED 11
+  #define TEMP_SENSOR_BED 11
 #else
-	#define TEMP_SENSOR_BED 0
+  #define TEMP_SENSOR_BED 0
 #endif
 
 #if(ENABLED(EnclosureTempSensor))
@@ -894,9 +890,9 @@
 #if ENABLED(HotendMosquito)
   #define HEATER_0_MAXTEMP 450
 #elif ENABLED(HotendAllMetal)
-	#define HEATER_0_MAXTEMP 315
+  #define HEATER_0_MAXTEMP 315
 #else
-	#define HEATER_0_MAXTEMP 255
+  #define HEATER_0_MAXTEMP 255
 #endif
 #define HEATER_1_MAXTEMP 275
 #define HEATER_2_MAXTEMP 275
@@ -1667,7 +1663,7 @@
  * A total of 3 or more adds more slow probes, taking the average.
  */
 #if DISABLED(MachineCR10Orig) || ENABLED(MelziHostOnly)
-  #define MULTIPLE_PROBING 2
+ // #define MULTIPLE_PROBING 2
 #endif
 //#define EXTRA_PROBING    1
 
